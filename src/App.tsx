@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import "./App.css";
 import AddPizzaForm from "./components/AddPizzaForm";
+import DisplayPizzas from "./components/DisplayPizzas";
 import Pizza from "./modals/Pizza";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <div className="wrap">
         <span className="heading">Наша пиццерия</span>
         <AddPizzaForm addPizza={addPizza} />
+        <DisplayPizzas pizzasList={pizzasList}/>
       </div>
     </div>
   );
