@@ -6,18 +6,29 @@ import { CSSTransition } from "react-transition-group";
 interface DisplayPizzasProps {
   pizzasList: Pizza[];
   updatePizza: (newPizza: Pizza) => void;
+  deletePizza: (id: number) => void;
 }
-const DisplayPizzas: FC<DisplayPizzasProps> = ({ pizzasList, updatePizza }) => {
+const DisplayPizzas: FC<DisplayPizzasProps> = ({
+  pizzasList,
+  updatePizza,
+  deletePizza,
+}) => {
   const [show, setShow] = useState(false);
 
   return (
     <div className="container">
       {pizzasList.map((pizza) => {
         return (
-          <CSSTransition in={true} timeout={500} unmountOnExit>
+          <CSSTransition
+            in={true}
+            className="alert"
+            timeout={500}
+            unmountOnExit
+          >
             <SinglePizza
               key={pizza.id}
               updatePizza={updatePizza}
+              deletePizza={deletePizza}
               pizza={pizza}
             />
           </CSSTransition>
